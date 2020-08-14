@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export const menuItem = ({ title }) => {
+export const menuItem = ({ title, history, linkUrl, match }) => {    
     return (
-        <div className="menu-item">
+        <div className="menu-item" 
+            onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <div className="content">
                 <h1 className="menu-title">{ title }</h1>
                 <span className="menu-subtitle">SHOP ONLINE</span>
@@ -11,4 +13,4 @@ export const menuItem = ({ title }) => {
     )
 }
 
-export default menuItem; 
+export default withRouter(menuItem); 

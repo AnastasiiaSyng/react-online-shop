@@ -7,31 +7,36 @@ class Category extends Component {
         this.state = {
             categories : [{
                 title: 'DANCE',
-                id: 1
+                id: 1,
+                linkUrl: 'dance'
                 },
                 {
                 title: 'BOXING',
-                id: 2
+                id: 2,
+                linkUrl: 'boxing'
                 },
                 {
                 title: 'SWIMMING',
-                id: 3
+                id: 3,
+                linkUrl: 'swimming'
                 },
                 {
                 title: 'YOGA',
-                id: 4
+                id: 4,
+                linkUrl: 'yoga'
                 },
                 {
                 title: 'SNOWBOARDING',
-                id: 5
+                id: 5,
+                linkUrl: 'snowboarding'
                 }]
         }
     }
     render() {
         return (
             <div  className="menu">
-                 {this.state.categories.map(({ title, id })=> (
-                    < MenuItem  key={id}  title={title}/> 
+                 {this.state.categories.map(({id, ...categoriesProps})=> (
+                    < MenuItem  key={id} {...categoriesProps}/> 
                 ))} 
             </div>
         )
